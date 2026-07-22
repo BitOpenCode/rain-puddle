@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+.App {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+#root,
+body,
+canvas {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: #00010b;
+}
+
+.chill-button .bloom-container {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: none;
+}
+
+/* From Uiverse.io by Smit-Prajapati */ 
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button .bloom-container {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: none;
+}
+
+.button .bloom-container .button-container-main {
+  width: 110px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  border-right: 5px solid white;
+  border-left: 5px solid rgba(128, 128, 128, 0.147);
+  transform: rotate(-45deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.button .bloom-container .button-container-main .button-inner {
+  height: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.5) -10px 5px 10px 0px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button .bloom-container .button-container-main .button-inner .back {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.button .bloom-container .button-container-main .button-inner .front {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.button .bloom-container .button-container-main .button-inner .front .svg {
+  fill: #ffffff;
+  opacity: 0.5;
+  width: 30px;
+  aspect-ratio: 1;
+  transform: rotate(45deg);
+  transition: all 0.2s ease-in;
+}
+
+.button .bloom-container .button-container-main .button-glass {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.888) 100%
+  );
+  transform: translate(0%, -50%) rotate(0deg);
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in-out;
+}
+
+.button .bloom-container .bloom {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  background: white;
+}
+
+.button .bloom-container .bloom1 {
+  top: 10px;
+  right: 20px;
+  box-shadow:
+    rgb(255, 255, 255) 0px 0px 10px 10px,
+    rgb(255, 255, 255) 0px 0px 20px 20px;
+}
+
+.button .bloom-container .bloom2 {
+  bottom: 10px;
+  left: 20px;
+  box-shadow:
+    rgba(255, 255, 255, 0.5) 0px 0px 10px 10px,
+    rgba(255, 255, 255, 0.5) 0px 0px 30px 20px;
+}
+
+.button .bloom-container:hover {
+  transform: scale(1.1);
+}
+
+.button .bloom-container:hover .button-container-main .button-glass {
+  transform: translate(0%, -40%);
+}
+
+.button
+  .bloom-container:hover
+  .button-container-main
+  .button-inner
+  .front
+  .svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px white);
+}
+
+.button .bloom-container:active {
+  transform: scale(0.7);
+}
+
+.button .bloom-container:active .button-container-main .button-inner {
+  transform: scale(1.2);
+}
+
+/* ===== СТИЛИ ДЛЯ КНОПКИ ЗВУКА ===== */
+.button-sound .bloom-container .button-container-main {
+  width: 70px; /* Меньше чем у основной кнопки */
+  border-right: 3px solid rgba(255, 255, 255, 0.6);
+  border-left: 3px solid rgba(128, 128, 128, 0.1);
+}
+
+.button-sound .bloom-container .button-container-main .button-inner {
+  height: 40px;
+}
+
+.button-sound .bloom-container .button-container-main .button-inner .front .svg {
+  width: 20px; /* Меньше иконка */
+  transform: rotate(0deg); /* Без поворота */
+}
+
+.button-sound .bloom-container .bloom1 {
+  box-shadow:
+    rgba(255, 255, 255, 0.3) 0px 0px 5px 5px,
+    rgba(255, 255, 255, 0.3) 0px 0px 10px 10px !important;
+}
+
+.button-sound .bloom-container .bloom2 {
+  box-shadow:
+    rgba(255, 255, 255, 0.15) 0px 0px 5px 5px,
+    rgba(255, 255, 255, 0.15) 0px 0px 15px 10px !important;
+}
+
+.button-sound .bloom-container:hover {
+  transform: scale(1.15);
+}
+
+.button-sound .bloom-container:active {
+  transform: scale(0.8);
+}
+
+/* Состояние "звук выключен" - затемнённая кнопка */
+.button-sound.sound-off .bloom-container .button-container-main {
+  border-right: 3px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+}
+
+.button-sound.sound-off .bloom-container .button-container-main .button-inner .front .svg {
+  opacity: 0.2;
+}
+
+.button-sound.sound-off .bloom-container .bloom1 {
+  box-shadow:
+    rgba(255, 255, 255, 0.05) 0px 0px 5px 5px,
+    rgba(255, 255, 255, 0.05) 0px 0px 10px 10px !important;
+}
+
+.button-sound.sound-off .bloom-container .bloom2 {
+  box-shadow:
+    rgba(255, 255, 255, 0.02) 0px 0px 5px 5px,
+    rgba(255, 255, 255, 0.02) 0px 0px 15px 10px !important;
+}
+
+/* Анимация пульсации для звука */
+@keyframes soundPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.button-sound .bloom-container .button-container-main .button-inner .front .svg.sound-on {
+  animation: soundPulse 2s ease-in-out infinite;
+}
+
+/* Скрываем bloom-эффекты по умолчанию */
+.button .bloom-container .bloom1,
+.button .bloom-container .bloom2 {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Показываем bloom-эффекты только при наведении */
+.button .bloom-container:hover .bloom1,
+.button .bloom-container:hover .bloom2 {
+  opacity: 1;
+}
+
+/* Для кнопки звука - делаем bloom-эффекты ещё более прозрачными */
+.button-sound .bloom-container .bloom1,
+.button-sound .bloom-container .bloom2 {
+  opacity: 0 !important;
+}
+
+.button-sound .bloom-container:hover .bloom1,
+.button-sound .bloom-container:hover .bloom2 {
+  opacity: 0.5 !important;
+}
+
+/* Для кнопки звука в состоянии sound-off - совсем убираем bloom */
+.button-sound.sound-off .bloom-container .bloom1,
+.button-sound.sound-off .bloom-container .bloom2 {
+  opacity: 0 !important;
+}
+
+/* Стили для надписей под кнопками */
+.button-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.button-label-small {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.button-label-small.sound-off {
+  color: rgba(255, 255, 255, 0.3);
+}

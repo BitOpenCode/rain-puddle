@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Градиент для фона -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a3e"/>
+      <stop offset="100%" stop-color="#0a0a1a"/>
+    </radialGradient>
+    
+    <!-- Градиент для лужи -->
+    <radialGradient id="puddleGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fc3f7" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#29b6f6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0288d1" stop-opacity="0.2"/>
+    </radialGradient>
+    
+    <!-- Свечение для капель -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Фон -->
+  <rect width="100" height="100" rx="20" fill="url(#bgGrad)"/>
+  
+  <!-- Круглая рамка -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity="0.3"/>
+  
+  <!-- Лужа -->
+  <ellipse cx="50" cy="65" rx="28" ry="12" fill="url(#puddleGrad)" filter="url(#softGlow)"/>
+  
+  <!-- Отражение в луже -->
+  <ellipse cx="45" cy="63" rx="8" ry="3" fill="white" opacity="0.15"/>
+  <ellipse cx="55" cy="67" rx="6" ry="2" fill="white" opacity="0.1"/>
+  
+  <!-- Крупная капля дождя (падает) -->
+  <path d="M50 15 Q52 25 50 35 Q48 25 50 15Z" fill="#4fc3f7" opacity="0.9" filter="url(#glow)"/>
+  
+  <!-- Маленькие капли дождя -->
+  <path d="M22 30 Q23 35 22 40 Q21 35 22 30Z" fill="#4fc3f7" opacity="0.5"/>
+  <path d="M78 25 Q79 30 78 35 Q77 30 78 25Z" fill="#4fc3f7" opacity="0.5"/>
+  <path d="M32 20 Q33 25 32 30 Q31 25 32 20Z" fill="#4fc3f7" opacity="0.3"/>
+  <path d="M68 40 Q69 45 68 50 Q67 45 68 40Z" fill="#4fc3f7" opacity="0.3"/>
+  
+  <!-- Звёзды/отражения -->
+  <circle cx="15" cy="15" r="0.8" fill="white" opacity="0.3"/>
+  <circle cx="85" cy="18" r="0.6" fill="white" opacity="0.2"/>
+  <circle cx="20" cy="85" r="0.5" fill="white" opacity="0.15"/>
+  <circle cx="80" cy="82" r="0.7" fill="white" opacity="0.2"/>
+  
+  <!-- Тень под лужей -->
+  <ellipse cx="50" cy="72" rx="30" ry="8" fill="black" opacity="0.2"/>
+</svg>
