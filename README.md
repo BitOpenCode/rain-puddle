@@ -13,6 +13,12 @@
 
 ![Rain Puddle Demo](./public/RainDrop.png)
 
+## 🌐 Live Demo
+
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://rain-puddle-sandy.vercel.app/)
+
+**Live Demo:** [rain-puddle-sandy.vercel.app](https://rain-puddle-sandy.vercel.app/)
+
 ## Features
 
 - **Dynamic Rain System** — Thousands of falling raindrops with realistic physics
